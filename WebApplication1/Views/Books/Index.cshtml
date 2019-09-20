@@ -1,0 +1,52 @@
+﻿<link type="text/css" rel="stylesheet" href="../../Content/styles.css" />
+@model IEnumerable<WebApplication1.Models.BookModel>
+@{
+    ViewBag.Title = "Книги";
+}
+
+<h2>Книги</h2>
+
+<p>
+    @Ajax.ActionLink("Добавить книгу", "CreateAndEdit", new { id = 0 }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { data_toggle = "modal", data_target = "#exampleModalScrollable" })
+</p>
+<p>
+     
+            @using (@Ajax.BeginForm("SortGenre", "Books", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "content-book" }))
+            {
+                @Html.Label("Select genre:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("id", ViewBag.genre as SelectList, new { @class = "btn btn-default dropdown-toggle form-control", onchange = "$(this).trigger('submit');" })
+                </div>
+            }
+              
+</p>
+
+<div class="booksGrid">
+    <figure class="grid_item--1">
+        <img src="~/Views/Books/ImagesGrid/book1.jpg" class="gridImage" />
+    </figure>
+    <figure class="grid_item--2">
+        <img src="~/Views/Books/ImagesGrid/book2.jpg" class="gridImage" />
+    </figure>
+    <figure class="grid_item--3">
+        <img src="~/Views/Books/ImagesGrid/book3.jpg" class="gridImage" />
+    </figure>
+</div>
+
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Create or edit author</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content-book">
+    @Html.Partial("ViewBooks", Model)
+</div>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.GenreModel>
+
+@{
+    ViewBag.Title = "Жанры";
+}
+
+<h2>Жанры</h2>
+
+<p>
+    @Html.ActionLink("Добавить жанр", "EditAndCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Genre")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditAndCreate", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

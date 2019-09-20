@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.AuthorBook>
+
+@{
+    ViewBag.Title = "Заказы";
+}
+
+<h2>Заказы</h2>
+
+<p>
+    @Html.ActionLink("Оформить заказ", "CreateOrEdit") |
+    @Html.ActionLink("Скачать список заказов", "Download")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Book's Name")
+        </th>
+        <th>
+            @Html.DisplayName("User")
+        </th>
+        <th>
+            Left days
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BooksName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @(item.DateOrder.DayOfYear - DateTime.Now.DayOfYear)
+            </td>
+            <td>
+                @if (item.DateOrder < DateTime.Now)
+                {
+                    @Html.ActionLink("Link", "Link", new { id = item.UserId }) @(" |")
+                }
+                @Html.ActionLink("Edit", "CreateOrEdit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

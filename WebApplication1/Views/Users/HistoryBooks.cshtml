@@ -1,0 +1,24 @@
+﻿@using WebApplication1.Models;
+<h2>History</h2>
+<table class="table">
+    <tr>
+        <th>
+           Author name
+        </th>
+        <th>
+           Book title
+        </th>
+    </tr>
+
+@foreach (var item in ViewData["books"] as List<AuthorBook>) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BooksName)
+        </td>       
+    </tr>
+}
+
+</table>
