@@ -121,20 +121,20 @@ namespace WebApplication1.Controllers
         public ActionResult Link(int id)
         {
             BUsers user = userService.GetUser(id);
-            MailAddress from = new MailAddress("cenitelas@mail.ru", "RETURN MY BOOK!!!");
+            MailAddress from = new MailAddress("1423demon@mail.ru", "Reader's Club");
             // кому отправляем
             MailAddress to = new MailAddress(user.Email);
             // создаем объект сообщения
             MailMessage m = new MailMessage(from, to);
             // тема письма
-            m.Subject = "RETURN MY BOOK!!!";
+            m.Subject = "Просроченная книга";
             // текст письма - включаем в него ссылку
-            m.Body = string.Format(user.Name+" верни книгу!!!!!");
+            m.Body = string.Format("<h2>Уважаемый" + user.Name + ", Вы просрочили срок сдачи книги! Вы заведены в список должников до того момента, пока не вернете книгу.</h2>");
             m.IsBodyHtml = true;
             // адрес smtp-сервера, с которого мы и будем отправлять письмо
             SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.mail.ru", 587);
             // логин и пароль
-            smtp.Credentials = new System.Net.NetworkCredential("cenitelas@mail.ru", "sanyaug777888");
+            smtp.Credentials = new System.Net.NetworkCredential("1423demon@mail.ru", "засекречено");
             smtp.EnableSsl = true;
             smtp.Send(m);
             return RedirectToAction("Index");

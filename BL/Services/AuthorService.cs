@@ -62,6 +62,15 @@ namespace BL.Services
             Database.Save();
         }
 
+        public BAuthor GetForName(string name)
+        {
+            BAuthor author = AutoMapper<Authors, BAuthor>.Map(Database.Authors.Find(i => i.FirstName == name).FirstOrDefault());
+            if (author != null)
+            {
+                return author;
+            }
+            return new BAuthor();
+        }
     }
 }
 
