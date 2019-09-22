@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers
     public class UsersController : Controller
     {
         IUserService userService;
+
         public UsersController(IUserService serv)
         {
             userService = serv;
@@ -39,6 +40,8 @@ namespace WebApplication1.Controllers
                 UserModel user = AutoMapper<BUsers, UserModel>.Map(userService.GetUser,(int)id);
                 ViewBag.books = ab;
 
+
+
                 return View(user);
         }
 
@@ -47,7 +50,12 @@ namespace WebApplication1.Controllers
         public ActionResult CreateOrEdit(UserModel model)
         {
             BUsers user = AutoMapper<UserModel, BUsers>.Map(model);
-            userService.CreateOrUpdate(user);
+
+            var email = new System.Net.Mail.MailAddress(model.Email);
+            if((email.Address == model.Email) == true)
+            {
+                userService.CreateOrUpdate(user);
+            }
             return RedirectToAction("Index");
         }
 
