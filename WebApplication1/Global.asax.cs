@@ -1,4 +1,4 @@
-﻿using BL.Services;
+﻿using BusinessLayer.Services;
 using Ninject;
 using Ninject.Modules;
 using System;

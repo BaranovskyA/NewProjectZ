@@ -6,7 +6,6 @@
     ViewBag.Title = "Авторы";
 }
 
-
 <h2>Авторы</h2>
 
 <div class="authorAddDiv">
@@ -14,7 +13,32 @@
 </div>
 
 <div id="authors-content">
-    @Html.Partial("ViewAuthors", Model)
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Ajax.ActionLink("Edit", "EditAndCreate", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { data_toggle = "modal", data_target = "#exampleModalScrollable" }) |
+                    @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "authors-content" })
+                </td>
+            </tr>
+        }
+    </table>
 </div>
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

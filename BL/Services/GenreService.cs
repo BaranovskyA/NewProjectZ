@@ -1,15 +1,15 @@
-﻿using BL.BInterfaces;
-using BL.BModel;
-using BL.Utils;
-using DL.Entities;
-using DL.Interfaces;
+﻿using BusinessLayer.BInterfaces;
+using BusinessLayer.BModel;
+using BusinessLayer.Utils;
+using DataLayer.Entities;
+using DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Services
+namespace BusinessLayer.Services
 {
     public class GenreService : IGenreService
     {

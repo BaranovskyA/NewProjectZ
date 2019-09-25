@@ -1,12 +1,12 @@
-﻿using DL.Entities;
-using DL.Interfaces;
+﻿using DataLayer.Entities;
+using DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DL.Repository
+namespace DataLayer.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -14,7 +14,7 @@ namespace DL.Repository
         private UserRepository userRepository;
         private BooksRepository bookRepository;
         private AuthorRepository authorRepository;
-        private UsersBooksRepository userBooksRepository;
+        private OrdersRepository ordersRepository;
         private GenreRepository genreRepository;
         private LogDetailRepository logDetailRepository;
         public UnitOfWork(string connection)
@@ -32,13 +32,13 @@ namespace DL.Repository
             }
         }
 
-        public IRepository<UsersBooks> UsersBooks
+        public IRepository<Orders> Orders
         {
             get
             {
-                if (userBooksRepository == null)
-                    userBooksRepository = new UsersBooksRepository(db);
-                return userBooksRepository;
+                if (ordersRepository == null)
+                    ordersRepository = new OrdersRepository(db);
+                return ordersRepository;
             }
         }
 

@@ -1,4 +1,4 @@
-namespace DL.Migrations
+namespace DataLayer.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

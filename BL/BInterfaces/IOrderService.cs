@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.BInterfaces
 {
-    public interface ILogDetailService
+    public interface IOrderService
     {
-        void CreateOrUpdate(BLogDetail author);
-        BLogDetail GetLog(int id);
-        IEnumerable<BLogDetail> GetLogs();
-        void DeleteLog(int id);
+        void CreateOrUpdate(BOrders order);
+        BOrders GetOrders(int id);
+        IEnumerable<BOrders> GetOrders();
+        void DeleteOrder(int id);
+        bool CheckUser(int id);
         void Dispose();
     }
 }

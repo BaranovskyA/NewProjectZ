@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DL.Entities
+namespace DataLayer.Entities
 {
     public partial class Genre
     {

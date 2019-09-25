@@ -1,4 +1,4 @@
-﻿namespace DL.Entities
+﻿namespace DataLayer.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using System.Web;
 
 
-    public partial class UsersBooks
+    public partial class Orders
     {
         public int Id { get; set; }
         public int BooksId { get; set; }

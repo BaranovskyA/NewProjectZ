@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using BL;
-using BL.BInterfaces;
-using BL.BModel;
-using BL.Services;
-using BL.Utils;
+using BusinessLayer;
+using BusinessLayer.BInterfaces;
+using BusinessLayer.BModel;
+using BusinessLayer.Services;
+using BusinessLayer.Utils;
 using Ninject;
 using System;
 using System.Collections.Generic;

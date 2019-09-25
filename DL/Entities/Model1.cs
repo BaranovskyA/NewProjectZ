@@ -1,4 +1,4 @@
-namespace DL.Entities
+namespace DataLayer.Entities
 {
     using System;
     using System.Data.Entity;
@@ -21,7 +21,7 @@ namespace DL.Entities
         public virtual DbSet<Authors> Authors { get; set; }
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<UsersBooks> UsersBooks { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
         public DbSet<LogDetail> LogDetails { get; set; }
 

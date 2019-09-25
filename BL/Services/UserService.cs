@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BL.BModel;
-using DL.Repository;
-using DL.Entities;
-using DL.Interfaces;
-using BL.Utils;
+using BusinessLayer.BModel;
+using DataLayer.Repository;
+using DataLayer.Entities;
+using DataLayer.Interfaces;
+using BusinessLayer.Utils;
 
-namespace BL.Services
+namespace BusinessLayer.Services
 {
     public class UserService : IUserService
     {
@@ -49,17 +49,17 @@ namespace BL.Services
             return new BUsers();
         }
 
-        public List<BUsersBook> GetReturnBooks(int id)
+        public List<BOrders> GetReturnBooks(int id)
         {
-            List<UsersBooks> ub = Database.UsersBooks.Find(i => i.UserId == id).ToList();
-            List<BUsersBook> bub = new List<BUsersBook>();
+            List<Orders> ub = Database.Orders.Find(i => i.UserId == id).ToList();
+            List<BOrders> bub = new List<BOrders>();
             
             foreach(var item in ub)
             {
                 Books book = Database.Books.Get(item.BooksId);
                 Authors author = Database.Authors.Get(book.AuthorId);
-                BUsersBook userBook = new BUsersBook() { Id=item.Id, AuthorId=author.Id, AuthorName=author.FirstName, BooksId=book.Id, BooksName=book.Title, UserId=item.UserId, UserName=Database.Users.Get(item.UserId).Name, DateOrder=item.DateOrder };
-                bub.Add(userBook);
+                BOrders order = new BOrders() { Id=item.Id, AuthorId=author.Id, AuthorName=author.FirstName, BooksId=book.Id, BooksName=book.Title, UserId=item.UserId, UserName=Database.Users.Get(item.UserId).Name, DateOrder=item.DateOrder };
+                bub.Add(order);
             }
 
             return bub; 

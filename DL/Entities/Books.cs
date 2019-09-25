@@ -1,4 +1,4 @@
-namespace DL.Entities
+namespace DataLayer.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -27,6 +27,6 @@ namespace DL.Entities
         public int? Price { get; set; }
 
         public virtual Authors Authors { get; set; }
-        public virtual ICollection<UsersBooks> UsersBooks { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

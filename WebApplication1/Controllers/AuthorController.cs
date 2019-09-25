@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using BL;
-using BL.BInterfaces;
-using BL.BModel;
-using BL.Services;
-using BL.Utils;
+using BusinessLayer;
+using BusinessLayer.BInterfaces;
+using BusinessLayer.BModel;
+using BusinessLayer.Services;
+using BusinessLayer.Utils;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -33,22 +33,20 @@ namespace WebApplication1.Controllers
         {
             AuthorModel author = AutoMapper<BAuthor, AuthorModel>.Map(authorService.GetAuthor,(int)id);
             return PartialView("EditOrCreate", author);
-
         }
         [Logger]
         [HttpPost]
         public ActionResult EditAndCreate(AuthorModel author)
         {
-                BAuthor oldAuthor = AutoMapper<AuthorModel, BAuthor>.Map(author);
-                authorService.CreateOrUpdate(oldAuthor);
-                return PartialView("ViewAuthors", AutoMapper<IEnumerable<BAuthor>, List<AuthorModel>>.Map(authorService.GetAuthors));
-   
+            BAuthor oldAuthor = AutoMapper<AuthorModel, BAuthor>.Map(author);
+            authorService.CreateOrUpdate(oldAuthor);
+            return RedirectToAction("Index");
         }
         [Logger]
         public ActionResult Delete(int id)
         {
             authorService.DeleteAuthor(id);
-            return PartialView("ViewAuthors", AutoMapper<IEnumerable<BAuthor>, List<AuthorModel>>.Map(authorService.GetAuthors));
+            return RedirectToAction("Index");
         }
     }
 }

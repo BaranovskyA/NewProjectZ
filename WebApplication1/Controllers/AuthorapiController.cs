@@ -1,12 +1,12 @@
-﻿using BL.BInterfaces;
+﻿using BusinessLayer.BInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BL.Utils;
-using BL.BModel;
+using BusinessLayer.Utils;
+using BusinessLayer.BModel;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -33,10 +33,6 @@ namespace WebApplication1.Controllers
             BAuthor newAuthor = AutoMapper<AuthorModel, BAuthor>.Map(author);
             authorService.CreateOrUpdate(newAuthor);
             return AutoMapper<BAuthor, AuthorModel>.Map(authorService.GetForName(author.FirstName));
-        }
-
-        public void Put(int id, [FromBody]string value)
-        {
         }
 
         public void Delete(int id)

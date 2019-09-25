@@ -1,6 +1,6 @@
-﻿using BL;
-using BL.BInterfaces;
-using BL.Services;
+﻿using BusinessLayer;
+using BusinessLayer.BInterfaces;
+using BusinessLayer.Services;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace WebApplication1.Modules
         {
             Bind<IAuthorService>().To<AuthorService>();
             Bind<IBookService>().To<BookService>();
-            Bind<IUserBookService>().To<UserBookService>();
+            Bind<IOrderService>().To<OrdersService>();
             Bind<IUserService>().To<UserService>();
             Bind<IGenreService>().To<GenreService>();
             Bind<ILogDetailService>().To<LogDetailService>();

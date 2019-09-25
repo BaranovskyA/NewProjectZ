@@ -198,10 +198,9 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
-    <Compile Include="Controllers\UserBooksAPIController.cs" />
-    <Compile Include="Controllers\UsersBooksController.cs" />
+    <Compile Include="Controllers\OrdersAPIController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\LoggerAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -280,9 +279,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Books\ImagesGrid\book1.jpg" />
-    <Content Include="Views\Books\ImagesGrid\book2.jpg" />
-    <Content Include="Views\Books\ImagesGrid\book3.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -303,15 +299,13 @@
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\CreateAndEdit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\UsersBooks\Index.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Users\CreateOrEdit.cshtml" />
     <Content Include="Views\Users\HistoryBooks.cshtml" />
-    <Content Include="Views\UsersBooks\CreateOrEdit.cshtml" />
+    <Content Include="Views\Orders\CreateOrEdit.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\EditAndCreate.cshtml" />
-    <Content Include="Views\Books\ViewBooks.cshtml" />
     <Content Include="Views\Author\EditOrCreate.cshtml" />
-    <Content Include="Views\Author\ViewAuthors.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -321,7 +315,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Log\Index.cshtml" />
+    <Content Include="Views\Log\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -331,9 +325,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BL\BL.csproj">
+    <ProjectReference Include="..\BL\BusinessLayer.csproj">
       <Project>{bb752d0d-7709-4ebf-9e39-e7ac42466a5f}</Project>
-      <Name>BL</Name>
+      <Name>BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

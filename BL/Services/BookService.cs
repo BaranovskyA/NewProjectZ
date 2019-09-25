@@ -1,16 +1,16 @@
-﻿using BL.Utils;
-using BL.BInterfaces;
-using BL.BModel;
-using DL.Entities;
-using DL.Interfaces;
-using DL.Repository;
+﻿using BusinessLayer.Utils;
+using BusinessLayer.BInterfaces;
+using BusinessLayer.BModel;
+using DataLayer.Entities;
+using DataLayer.Interfaces;
+using DataLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Services
+namespace BusinessLayer.Services
 {
     public class BookService:IBookService
     {

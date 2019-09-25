@@ -1,6 +1,6 @@
-﻿using BL.Utils;
-using BL.BInterfaces;
-using BL.BModel;
+﻿using BusinessLayer.Utils;
+using BusinessLayer.BInterfaces;
+using BusinessLayer.BModel;
 using System;
 using System.Collections.Generic;
 using System.Data;

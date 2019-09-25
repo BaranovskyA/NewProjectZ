@@ -1,4 +1,4 @@
-namespace DL.Migrations
+namespace DataLayer.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -6,14 +6,14 @@ namespace DL.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.UsersBooks", "DateOrder", c => c.DateTime(nullable: false));
+            AddColumn("dbo.Orders", "DateOrder", c => c.DateTime(nullable: false));
             AddColumn("dbo.Users", "Email", c => c.String());
         }
         
         public override void Down()
         {
             DropColumn("dbo.Users", "Email");
-            DropColumn("dbo.UsersBooks", "DateOrder");
+            DropColumn("dbo.Orders", "DateOrder");
         }
     }
 }

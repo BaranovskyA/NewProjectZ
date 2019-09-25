@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Utils
+namespace BusinessLayer.Utils
 {
     public static class AutoMapper<A,B>
     {

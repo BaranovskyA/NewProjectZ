@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.BModel
+namespace BusinessLayer.BModel
 {
     public class BBook
     {

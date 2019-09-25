@@ -1,4 +1,4 @@
-namespace DL.Migrations
+namespace DataLayer.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -31,7 +31,7 @@ namespace DL.Migrations
                 .Index(t => t.AuthorId);
             
             CreateTable(
-                "dbo.UsersBooks",
+                "dbo.Orders",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -58,13 +58,13 @@ namespace DL.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
-            DropForeignKey("dbo.UsersBooks", "UserId", "dbo.Users");
-            DropForeignKey("dbo.UsersBooks", "BooksId", "dbo.Books");
-            DropIndex("dbo.UsersBooks", new[] { "UserId" });
-            DropIndex("dbo.UsersBooks", new[] { "BooksId" });
+            DropForeignKey("dbo.Orders", "UserId", "dbo.Users");
+            DropForeignKey("dbo.Orders", "BooksId", "dbo.Books");
+            DropIndex("dbo.Orders", new[] { "UserId" });
+            DropIndex("dbo.Orders", new[] { "BooksId" });
             DropIndex("dbo.Books", new[] { "AuthorId" });
             DropTable("dbo.Users");
-            DropTable("dbo.UsersBooks");
+            DropTable("dbo.Orders");
             DropTable("dbo.Books");
             DropTable("dbo.Authors");
         }

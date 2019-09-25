@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BL.BModel;
-using DL.Repository;
-using DL.Entities;
-using BL.Utils;
-using BL.BInterfaces;
-using DL.Interfaces;
+using BusinessLayer.BModel;
+using DataLayer.Repository;
+using DataLayer.Entities;
+using BusinessLayer.Utils;
+using BusinessLayer.BInterfaces;
+using DataLayer.Interfaces;
 
-namespace BL.Services
+namespace BusinessLayer.Services
 {
     public class AuthorService : IAuthorService
     {

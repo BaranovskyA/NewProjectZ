@@ -1,6 +1,6 @@
-﻿using BL.Utils;
-using BL;
-using BL.BModel;
+﻿using BusinessLayer.Utils;
+using BusinessLayer;
+using BusinessLayer.BModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,12 +36,9 @@ namespace WebApplication1.Controllers
 
         public ActionResult CreateOrEdit(int? id=0)
         {
-                List<AuthorBook> ab =  AutoMapper<IEnumerable<BUsersBook>, List<AuthorBook>>.Map(userService.GetReturnBooks,(int)id);
+                List<AuthorBook> ab =  AutoMapper<IEnumerable<BOrders>, List<AuthorBook>>.Map(userService.GetReturnBooks,(int)id);
                 UserModel user = AutoMapper<BUsers, UserModel>.Map(userService.GetUser,(int)id);
                 ViewBag.books = ab;
-
-
-
                 return View(user);
         }
 

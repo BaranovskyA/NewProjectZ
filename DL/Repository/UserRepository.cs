@@ -1,5 +1,5 @@
-﻿using DL.Entities;
-using DL.Interfaces;
+﻿using DataLayer.Entities;
+using DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DL.Repository
+namespace DataLayer.Repository
 {
     public class UserRepository : IRepository<Users>
     {
