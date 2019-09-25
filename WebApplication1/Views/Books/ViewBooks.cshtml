@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebApplication1.Models.BookModel>
+
+<div>
+@foreach (var item in Model)
+{
+    <div class="books">
+        <div>
+            <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+            <p><b>Автор:</b> @Html.DisplayFor(modelItem => item.AuthorName)</p>
+            <p><b>Жанр:</b> @Html.DisplayFor(modelItem => item.GenreName)</p>        
+            <p><b>Кол-во страниц:</b> @Html.DisplayFor(modelItem => item.Pages)</p>
+            <p><b>Цена:</b> @Html.DisplayFor(modelItem => item.Price)</p> 
+            @Html.Raw("<img src=\"http://atom96.ru/wp-content/uploads/2017/10/%D0%BD%D0%B5%D1%82-%D1%84%D0%BE%D1%82%D0%BE-300x300.png" + Convert.ToBase64String(item.Image) + "\" />")
+            <div>
+                @Ajax.ActionLink("Edit", "CreateAndEdit", new {id = item.Id }, new AjaxOptions { UpdateTargetId = "modal-body" }, new {@class="btn btn-warning" , data_toggle = "modal", data_target = "#exampleModalScrollable" })
+                @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "content-book" }, new {@class="btn btn-warning"})
+            </div>
+        </div>
+    </div>
+}
+</div>

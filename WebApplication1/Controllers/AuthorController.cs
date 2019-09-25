@@ -40,13 +40,13 @@ namespace WebApplication1.Controllers
         {
             BAuthor oldAuthor = AutoMapper<AuthorModel, BAuthor>.Map(author);
             authorService.CreateOrUpdate(oldAuthor);
-            return RedirectToAction("Index");
+            return PartialView("ViewAuthors", AutoMapper<IEnumerable<BAuthor>, List<AuthorModel>>.Map(authorService.GetAuthors));
         }
         [Logger]
         public ActionResult Delete(int id)
         {
             authorService.DeleteAuthor(id);
-            return RedirectToAction("Index");
+            return PartialView("ViewAuthors", AutoMapper<IEnumerable<BAuthor>, List<AuthorModel>>.Map(authorService.GetAuthors));
         }
     }
 }

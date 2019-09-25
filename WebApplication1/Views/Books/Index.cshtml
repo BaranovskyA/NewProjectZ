@@ -1,26 +1,16 @@
-﻿<link type="text/css" rel="stylesheet" href="../../Content/styles.css" />
-@model IEnumerable<WebApplication1.Models.BookModel>
-@{
-    ViewBag.Title = "Книги";
-}
+﻿@model IEnumerable<WebApplication1.Models.BookModel>
 
-<h2>Книги</h2>
-
-<p>
-    @Ajax.ActionLink("Добавить книгу", "CreateAndEdit", new { id = 0 }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { data_toggle = "modal", data_target = "#exampleModalScrollable" })
-</p>
-<p>
-     
-            @using (@Ajax.BeginForm("SortGenre", "Books", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "content-book" }))
-            {
-                @Html.Label("Select genre:", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("id", ViewBag.genre as SelectList, new { @class = "btn btn-default dropdown-toggle form-control", onchange = "$(this).trigger('submit');" })
-                </div>
-            }
-              
-</p>
-
+<div class="search">
+    <span>
+        @Ajax.ActionLink("Добавить книгу", "CreateAndEdit", new { id = 0 }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { @class = "btn btn-warning", data_toggle = "modal", data_target = "#exampleModalScrollable" })
+    </span>
+    @using (@Ajax.BeginForm("SortGenre", "Books", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "content-book" }, new { @class = "search-form" }))
+    {
+        <div class="col-md-10">
+            Genre: @Html.DropDownList("id", ViewBag.genre as SelectList, new { @class = "btn btn-default dropdown-toggle form-control", onchange = "$(this).trigger('submit');" })
+        </div>
+    }
+</div>
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -36,55 +26,5 @@
     </div>
 </div>
 <div id="content-book">
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayName("Author")
-            </th>
-            <th>
-                @Html.DisplayName("Genre")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayName("Count pages")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AuthorName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GenreName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.Raw("<img style='width:80px; height:60px;' src=\"data:image/jpeg;base64,"
-                                + Convert.ToBase64String(item.Image) + "\" />")
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pages)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Ajax.ActionLink("Edit", "CreateAndEdit", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { data_toggle = "modal", data_target = "#exampleModalScrollable" }) |
-                    @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "content-book" })
-                </td>
-            </tr>
-        }
-    </table>
+    @Html.Partial("ViewBooks", Model)
 </div>

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BL.Services;
-using BL.BInterfaces;
-using BL.Utils;
-using BL.BModel;
+using BusinessLayer.Services;
+using BusinessLayer.BInterfaces;
+using BusinessLayer.Utils;
+using BusinessLayer.BModel;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
         }
         public ActionResult Index()
         {
-            return View(AutoMapper<IEnumerable<BLogDetail>,List<LoggerModel>>.Map(logDetail.GetLogs));
+            return View(AutoMapper<IEnumerable<BLogDetail>, List<LoggerModel>>.Map(logDetail.GetLogs));
         }
 
         public ActionResult Delete(int id)
