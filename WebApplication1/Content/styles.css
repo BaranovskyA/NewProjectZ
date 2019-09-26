@@ -40,3 +40,30 @@
     background-color: black;
     color: ghostwhite;
 }
+
+.buttonsBooks
+{
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    vertical-align: middle;
+    transition: all 0.2s linear;
+}
+
+.buttonsBooks:hover
+{
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    border: 1px solid white;
+}

@@ -1,8 +1,9 @@
-﻿@model IEnumerable<WebApplication1.Models.BookModel>
+﻿<link rel="stylesheet" href="~/Content/styles.css"/>
+@model IEnumerable<WebApplication1.Models.BookModel>
 
 <div class="search">
     <span>
-        @Ajax.ActionLink("Добавить книгу", "CreateAndEdit", new { id = 0 }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { @class = "btn btn-warning", data_toggle = "modal", data_target = "#exampleModalScrollable" })
+        @Ajax.ActionLink("Добавить книгу", "CreateAndEdit", new { id = 0 }, new AjaxOptions { UpdateTargetId = "modal-body" }, new { @class = "buttonsBooks", data_toggle = "modal", data_target = "#exampleModalScrollable" })
     </span>
     @using (@Ajax.BeginForm("SortGenre", "Books", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "content-book" }, new { @class = "search-form" }))
     {
