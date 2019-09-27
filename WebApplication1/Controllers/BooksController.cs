@@ -37,6 +37,11 @@ namespace WebApplication1.Controllers
             return View(AutoMapper<IEnumerable<BBook>, List<BookModel>>.Map(bookService.GetBooks));
         }
 
+        public ActionResult SurveyIndex()
+        {
+            return View(AutoMapper<IEnumerable<BBook>, List<BookModel>>.Map(bookService.GetBooks));
+        }
+
         public ActionResult CreateAndEdit(int? id=0)
         {
             BookModel book = new BookModel();
