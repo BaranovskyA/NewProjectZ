@@ -38,7 +38,7 @@ namespace DataLayer.Repository
 
         public IEnumerable<Authors> GetAll()
         {
-            List<Authors> z = db.Authors.ToList();
+            List<Authors> z = db.Authors.OrderBy(a=>a.LastName).ToList();
             return z;
         }
 
